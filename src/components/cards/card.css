@@ -30,12 +30,8 @@
   margin-right: 1em;
 }
 
-/* 
-.card__name {
+.char__list {
+  display: grid;
+  grid-auto-flow: row;
+  row-gap: 1em;
 }
-
-.card__species {
-}
-
-.card__origin {
-} */

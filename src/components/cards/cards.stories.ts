@@ -44,7 +44,7 @@ export const Morty = () =>
     ];
 
     const container = createElement("div", {
-      className: "character-list",
+      className: "char__list",
       childs: 
       characters.map(character => createCard(character))
     })
