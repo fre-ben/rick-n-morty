@@ -53,6 +53,7 @@ export const Multiple = () => {
   return container;
 };
 
+// Character
 export const CharacterFromAPI = (args, { loaded: { character } }) => {
   return createCard(character);
 };
@@ -63,6 +64,7 @@ CharacterFromAPI.loaders = [
   }),
 ];
 
+//Characters
 export const CharactersFromAPI = (args, { loaded: { characters } }) => {
   const container = createElement("div", {
     className: "char__list",
