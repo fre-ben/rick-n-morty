@@ -1,6 +1,6 @@
 .card {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 300px auto;
   align-items: center;
   column-gap: 1em;
   color: rgb(238, 238, 238);
@@ -10,7 +10,7 @@
 
 .card p {
   margin: 0;
-  margin-bottom: 0.2em;
+  margin-bottom: 0.4em;
 }
 
 .card p:last-child {
