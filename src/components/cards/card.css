@@ -1,23 +1,61 @@
 .card {
-  display: grid;
-  grid-template-columns: 300px auto;
   align-items: center;
-  column-gap: 1em;
-  color: rgb(238, 238, 238);
-  background-color: rgb(45, 60, 75);
-  border-radius: 10px;
+  background-color: transparent;
+  width: 600px;
+  height: 300px;
+  perspective: 1000px;
 }
 
-.card p {
+.card__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* text-align: center; */
+  transition: 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card:hover .card__inner {
+  transform: rotateY(180deg);
+}
+
+.card__front,
+.card__back {
+  background-color: rgb(45, 60, 75);
+  color: rgb(238, 238, 238);
+  border-radius: 10px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.card__front {
+  display: grid;
+  grid-template-columns: 300px auto;
+  column-gap: 1em;
+  align-items: center;
+}
+
+.card__back {
+  transform: rotateY(180deg);
+  display: grid;
+  place-content: center;
+}
+
+.card__front p,
+.card__back p {
   margin: 0;
   margin-bottom: 0.4em;
 }
 
-.card p:last-child {
+.card__front p:last-child,
+.card__back p:last-child {
   margin: 0;
 }
 
-.card h2 {
+.card__front h2 {
   margin: 0.3em 0;
 }
 
