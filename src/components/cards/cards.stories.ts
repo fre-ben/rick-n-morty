@@ -79,6 +79,7 @@ CharactersFromAPI.loaders = [
   }),
 ];
 
+//Random Char
 export const RandomCharacter = () => {
   const randomButton = createElement("button", {
     innerText: "Load random character",
@@ -122,3 +123,32 @@ export const RandomCharacter = () => {
   });
   return container;
 };
+
+//Filter Characters
+export const CharactersFromAPIFiltered = (args, { loaded: { characters } }) => {
+  const input = createElement("input", {
+    onchange: async () => {
+      const newCharacters = await getCharacters(input.value);
+      const newCards = newCharacters.map((character) => createCard(character));
+      characterContainer.innerHTML = "";
+      characterContainer.append(...newCards);
+    },
+  });
+
+  const characterContainer = createElement("div", {
+    className: "char__list",
+    childs: characters.map((character) => createCard(character)),
+  });
+
+  const container = createElement("div", {
+    className: "",
+    childs: [input, characterContainer],
+  });
+  return container;
+};
+
+CharactersFromAPIFiltered.loaders = [
+  async () => ({
+    characters: await getCharacters(),
+  }),
+];
